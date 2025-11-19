@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boing Racing</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #1a1a1a; font-family: 'Arial', sans-serif; }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-style: italic;
+            pointer-events: none;
+        }
+        h1 { margin: 0; text-shadow: 2px 2px 0 #ff0055; }
+        p { font-size: 14px; color: #ddd; }
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            text-align: right;
+        }
+        .key {
+            display: inline-block;
+            background: #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #555;
+            margin: 2px;
+        }
+        #speedometer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 120px;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            border: 4px solid #ff0055;
+            box-shadow: 0 0 10px #ff0055;
+        }
+        #needle {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            width: 4px;
+            height: 50px;
+            background: red;
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(-135deg); /* Start pos */
+            transition: transform 0.05s linear;
+        }
+        #speed-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 5px black;
+        }
+        #speed-text {
+            position: absolute;
+            bottom: 40px;
+            left: 150px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 2px 2px 0 #ff0055;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #speed-unit {
+            font-size: 16px;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h1>BOING RACING</h1>
+        <p>Utilisez les flèches pour drifter.</p>
+    </div>
+    <div id="speedometer">
+        <div id="needle"></div>
+        <div id="speed-center"></div>
+    </div>
+    <div id="speed-text"><span id="speed-value">0</span> <span id="speed-unit">km/h</span></div>
+    <div id="controls">
+        <div><span class="key">↑</span> Gaz</div>
+        <div><span class="key">↓</span> Frein / Recul</div>
+        <div><span class="key">←</span> <span class="key">→</span> Braquer</div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
