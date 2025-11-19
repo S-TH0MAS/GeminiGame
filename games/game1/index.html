@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Super JS Bros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background: #202020; 
+            color: white; 
+            text-align: center; 
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        #game-container {
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        canvas { 
+            background: #5c94fc;
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        #ui-layer {
+            position: absolute; top: 20px; left: 0; width: 100%;
+            display: flex; justify-content: space-around;
+            color: white; text-shadow: 2px 2px 0 #000;
+            pointer-events: none; font-size: 20px;
+        }
+
+        .controls {
+            margin-top: 10px;
+            color: #aaa;
+            font-size: 0.7rem;
+            font-family: sans-serif;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 15px;
+            border-radius: 5px;
+            z-index: 100;
+            font-family: sans-serif;
+        }
+        .back-link:hover {
+            background: rgba(233, 69, 96, 0.8);
+        }
+
+        .invincible-flash {
+            animation: invincible-flash 0.1s infinite alternate;
+        }
+        @keyframes invincible-flash {
+            from { filter: brightness(1) hue-rotate(0deg); }
+            to { filter: brightness(2) hue-rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">← Menu</a>
+    
+    <div id="game-container">
+        <div id="ui-layer">
+            <div>MARIO<br><span id="score">000000</span></div>
+            <div>COINS<br><span id="coins">x00</span></div>
+            <div>WORLD<br>1-1</div>
+            <div>TIME<br><span id="time">400</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    
+    <div class="controls">
+        Flèches: Bouger | Espace/Z: Sauter | X: Courir
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
