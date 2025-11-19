@@ -1,7 +1,9 @@
-# Jeu Arcade – Jeu en ligne
+# 🕹️ Jeu Arcade – Expérience IA
 
-Bienvenue ! Pour jouer, clique sur le lien suivant :  
-[Accéder au jeu](https://s-th0mas.github.io/GeminiGame)
+## Un jeu entièrement réalisé par Gemini 3
 
+Ce projet est une expérimentation : **0% de code humain, 100% de prompts.** Tout le développement a été généré par l'intelligence artificielle Gemini 3.
 
-https://s-th0mas.github.io/GeminiGame
+### 🚀 [Jouer maintenant](https://s-th0mas.github.io/GeminiGame)
+
+Bon jeu !
