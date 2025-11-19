@@ -43,8 +43,7 @@ export class Goomba {
                 mario.vel.y = -JUMP_FORCE / 2;
                 mario.score += 100;
             } else {
-                if(mario.state === 'big') { mario.state = 'small'; mario.invincible = true; mario.invincibleTimer = 120; }
-                else mario.die();
+                mario.takeDamage();
             }
         }
     }

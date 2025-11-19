@@ -126,11 +126,31 @@ export class Player {
     powerUp(type) {
         this.score += 1000;
         if(type === 'mushroom') {
-            this.state = 'big';
+            if (this.state === 'small') {
+                this.state = 'big';
+                this.width = 16 * SCALE;
+                this.height = 32 * SCALE;
+                this.pos.y -= 16 * SCALE;
+            }
         } else if (type === 'star') {
             this.invincible = true;
             this.invincibleTimer = 600; // 10 sec
             document.body.classList.add('invincible-flash');
+        }
+    }
+
+    takeDamage() {
+        if (this.invincible) return;
+
+        if (this.state === 'big') {
+            this.state = 'small';
+            this.width = 12 * SCALE;
+            this.height = 16 * SCALE;
+            this.invincible = true;
+            this.invincibleTimer = 120;
+            this.pos.y += 16 * SCALE;
+        } else {
+            this.die();
         }
     }
 
@@ -139,7 +159,7 @@ export class Player {
         if(!this.grounded) sprite = SPRITES.mario_jump;
         else if(Math.abs(this.vel.x) > 0.5) sprite = (this.frameIndex === 0) ? SPRITES.mario_run1 : SPRITES.mario_run2;
 
-        drawSprite(ctx, sprite, PALETTES.mario, this.pos.x - cX, this.pos.y, 16*SCALE, 16*SCALE, !this.facingRight);
+        drawSprite(ctx, sprite, PALETTES.mario, this.pos.x - cX, this.pos.y, this.width, this.height, !this.facingRight);
     }
 }
 
