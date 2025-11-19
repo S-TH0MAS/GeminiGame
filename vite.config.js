@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         game1: resolve(__dirname, 'games/game1/index.html'),
+        game2: resolve(__dirname, 'games/game2/index.html'),
       },
     },
   },
